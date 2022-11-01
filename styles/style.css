@@ -813,12 +813,12 @@ img {
   opacity: 1;
 }
 
-.group__field:focus-visible + .group__label--checkbox::before,
-.group__field:focus-visible + .group__label--radio::before,
 .breadcrumbs__link:not(.breadcrumbs__link--current):focus-visible,
+.breadcrumbs__link:not(.breadcrumbs__link--current):focus,
 .group__field:focus + .group__label--checkbox::before,
-.group__field:focus + .group__label--radio::before .breadcrumbs__link,
-.breadcrumbs__link:not(.breadcrumbs__link--current):focus {
+.group__field:focus + .group__label--radio::before,
+.group__field:focus-visible + .group__label--checkbox::before,
+.group__field:focus-visible + .group__label--radio::before {
   outline: 3px solid var(--basic-extra-blue);
 }
 
@@ -1107,17 +1107,19 @@ img {
 
 .view-controls {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style-type: none;
+  max-width: 160px;
 }
 
 .view-controls__item {
   display: flex;
-  margin-right: 8px;
 }
 
-.view-controls__item:last-child {
+.view-controls__item:nth-child(3n) {
   margin-right: 0;
 }
 
@@ -1307,24 +1309,27 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
   font-size: 20px;
   line-height: 36px;
   color: var(--basic-white);
   text-decoration: none;
   background-color: var(--basic-blue);
+  border: 1px solid var(--basic-blue);
   border-radius: 4px;
 }
 
 .pagination__item--current .pagination__link {
   color: var(--basic-black);
+  border-color: var(--basic-light);
   background-color: var(--basic-light);
 }
 
 .pagination__item--more .pagination__link {
   font-weight: 400;
   color: var(--basic-black);
+  border-color: transparent;
   background-color: transparent;
 }
 
@@ -1332,7 +1337,7 @@ img {
 .pagination__item--default .pagination__link:focus-visible,
 .pagination__item--default .pagination__link:focus {
   outline: none;
-  border: 1px solid var(--basic-blue);
+  border-color: var(--basic-extra-dark-blue);
   background-color: var(--basic-extra-dark-blue);
 }
 
